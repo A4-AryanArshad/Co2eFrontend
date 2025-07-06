@@ -28,7 +28,7 @@ const Header2= () => {
             <a href="#" className="logo"><img id="logoo" src="./Logo.png"></img></a>
           </h1>
 
-      
+
           {/* Open Button */}
           <button
             className="nav-open-btn"

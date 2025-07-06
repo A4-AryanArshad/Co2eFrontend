@@ -2,12 +2,14 @@ const mongoose = require('mongoose');
 
 const newsSchema = new mongoose.Schema({
   title: {
-    type: String,
-    required: true,
+    en: { type: String, required: true },
+    fr: { type: String, required: true },
+    es: { type: String, required: true }
   },
   description: {
-    type: String,
-    required: true,
+    en: { type: String, required: true },
+    fr: { type: String, required: true },
+    es: { type: String, required: true }
   },
   tags: {
     type: [String], // array of tags

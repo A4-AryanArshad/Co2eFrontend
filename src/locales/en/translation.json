@@ -251,7 +251,28 @@
       "email": "Email",
       "password": "Password",
       "submit": "Login"
-    }
+    },
+    "counter": {
+  "heading": "Real-Time Global Carbon Impact",
+  "since": "Since",
+  "emissions_label": "CO₂ Emissions",
+  "emissions_unit": "Metric tons emitted",
+  "credits_label": "Carbon Credits Issued",
+  "credits_unit": "Metric tons offset"
+},
+"blog": {
+  "subscribePlaceholder": "Enter your email to subscribe to our newsletter",
+  "subscribe": "Subscribe",
+  "start": "Get started with our",
+  "news": "News",
+  "readMore": "Read More"
+},
+"recent": {
+    "seeWhat": "See what we've",
+    "blogs": "Blogs",
+    "readMore": "Read More"
+  }
+
 }
 
 

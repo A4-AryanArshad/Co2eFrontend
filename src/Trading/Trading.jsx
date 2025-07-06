@@ -8,17 +8,33 @@ const Trading = () => {
   const { t } = useTranslation();
   const [cards, setCards] = useState([]);
 
+  const fetchCards = async () => {
+    try {
+      // Get the selected language from localStorage
+      const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+      const res = await fetch(`https://backend-co2e-portal.vercel.app/card/cards?lang=${selectedLanguage}`);
+      const data = await res.json();
+      setCards(data);
+    } catch (err) {
+      console.error("Error fetching cards:", err);
+    }
+  };
+
   useEffect(() => {
-    const fetchCards = async () => {
-      try {
-        const res = await fetch('https://cbackend-lilac.vercel.app/card/cards');
-        const data = await res.json();
-        setCards(data);
-      } catch (err) {
-        console.error("Error fetching cards:", err);
-      }
-    };
     fetchCards();
+    
+    // Listen for language changes
+    const handleLanguageChange = () => {
+      fetchCards();
+    };
+
+    window.addEventListener('storage', handleLanguageChange);
+    window.addEventListener('languageChanged', handleLanguageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleLanguageChange);
+      window.removeEventListener('languageChanged', handleLanguageChange);
+    };
   }, []);
 
   return (
@@ -70,8 +86,8 @@ const Trading = () => {
                 <div id="ddu" key={idx}>
                   <div id="dd" onClick={() => window.open(card.link, "_blank")}>
                     <button>*</button>
-                    <h1>{card.title}</h1>
-                    <p>{card.description}</p>
+                    <h1>{card.title || 'Untitled'}</h1>
+                    <p>{card.description || 'No description available'}</p>
                   </div>
                 </div>
               ))}

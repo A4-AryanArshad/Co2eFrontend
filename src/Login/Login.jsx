@@ -23,7 +23,7 @@ const Login = () => {
     try {
 
 
-      const res = await fetch('https://cbackend-lilac.vercel.app/api/login', {
+      const res = await fetch('https://backend-co2e-portal.vercel.app/api/login', {
         method: 'POST',
         credentials: 'include', // important for cookies
         headers: {

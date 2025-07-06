@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const CarbonCounter = () => {
+  const { t } = useTranslation();
+
   const co2PerSecond = 1300;
   const creditsPerSecond = 16;
   const startDate = new Date('2025-01-01T00:00:00Z');
@@ -16,28 +19,28 @@ const CarbonCounter = () => {
       setCreditTotal(secondsElapsed * creditsPerSecond);
     };
 
-    updateCounters(); // Initial call
-    const intervalId = setInterval(updateCounters, 1000); // Update every second
+    updateCounters();
+    const intervalId = setInterval(updateCounters, 1000);
 
-    return () => clearInterval(intervalId); // Cleanup on unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
     <div style={styles.container}>
-      <h1>🌿 Real-Time Global Carbon Impact</h1>
-      <div style={styles.subtitle}>Since January 1, 2025</div>
+      <h1>🌿 {t("counter.heading")}</h1>
+      <div style={styles.subtitle}>{t("counter.since")} January 1, 2025</div>
 
       <div style={styles.counterGrid}>
         <div style={{ ...styles.counterBox, ...styles.emissions }}>
-          <div style={styles.label}>CO₂ Emissions</div>
+          <div  id="rr2"style={styles.label}>{t("counter.emissions_label")}</div>
           <div style={{ ...styles.value, color: '#d32f2f' }}>{co2Total.toLocaleString()}</div>
-          <div style={styles.unit}>Metric tons emitted</div>
+          <div style={styles.unit}>{t("counter.emissions_unit")}</div>
         </div>
 
         <div style={{ ...styles.counterBox, ...styles.credits }}>
-          <div style={styles.label}>Carbon Credits Issued</div>
+          <div id="rr2"style={styles.label}>{t("counter.credits_label")}</div>
           <div style={{ ...styles.value, color: '#2e7d32' }}>{creditTotal.toLocaleString()}</div>
-          <div style={styles.unit}>Metric tons offset</div>
+          <div style={styles.unit}>{t("counter.credits_unit")}</div>
         </div>
       </div>
     </div>
@@ -48,14 +51,14 @@ const styles = {
   container: {
     fontFamily: "'Segoe UI', sans-serif",
     backgroundColor: 'black',
-    color: '#333',
+    color: '#fff',
     textAlign: 'center',
     padding: '50px',
-    borderRadius:'20px'
+    borderRadius: '20px',
   },
   subtitle: {
     fontSize: '2em',
-    color: '#666',
+    color: '#aaa',
     marginBottom: '40px',
   },
   counterGrid: {

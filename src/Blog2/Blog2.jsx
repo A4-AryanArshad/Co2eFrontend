@@ -5,90 +5,112 @@ import './assets/css/style.css';
 import RecentPosts from './RecentPosts';
 import Header from '../Home/Header';
 import Footer from '../Home/Footer';
+import { useTranslation } from 'react-i18next';
 
 const Blog2 = () => {
   const [posts, setPosts] = useState([]);
+  const { t, i18n } = useTranslation();
+
+  // Fetch news based on selected language
+  const fetchNews = async () => {
+    try {
+      const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+      const res = await axios.get(`https://backend-co2e-portal.vercel.app/api/news?lang=${selectedLanguage}`);
+      setPosts(res.data);
+    } catch (error) {
+      console.error('Error fetching news:', error);
+    }
+  };
 
   useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const res = await axios.get('https://cbackend-lilac.vercel.app/api/news');
-        setPosts(res.data);
-      } catch (error) {
-        console.error('Error fetching news:', error);
-      }
+    fetchNews();
+
+    const handleLanguageChange = () => {
+      i18n.changeLanguage(localStorage.getItem('selectedLanguage') || 'en');
+      fetchNews();
     };
 
-    fetchNews();
+    window.addEventListener('storage', handleLanguageChange);
+    window.addEventListener('languageChanged', handleLanguageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleLanguageChange);
+      window.removeEventListener('languageChanged', handleLanguageChange);
+    };
   }, []);
 
-  // Helper to truncate description
+  // Truncate description
   const truncate = (text, wordLimit) => {
-    return text.split(" ").slice(0, wordLimit).join(" ") + "...";
+    if (!text || typeof text !== 'string') return { text: '', isTruncated: false };
+    const words = text.split(' ');
+    const isTruncated = words.length > wordLimit;
+    return { text: words.slice(0, wordLimit).join(' '), isTruncated };
   };
 
   return (
     <>
       <Header />
+
+      {/* Subscribe Section */}
       <div id="wwq">
         <div className="subscribe-container">
           <form onSubmit={(e) => e.preventDefault()} className="subscribe-form">
             <input
               type="email"
-              placeholder="Add a subscribe to our newsletter"
+              placeholder={t('blog.subscribePlaceholder')}
               required
               className="subscribe-input"
             />
-            <button type="submit" className="subscribe-button">Subscribe</button>
+            <button type="submit" className="subscribe-button">{t('blog.subscribe')}</button>
           </form>
         </div>
       </div>
 
+      {/* News Section */}
       <section id="tttt" className="section featured" aria-label="featured post">
         <div className="container">
           <h2 className="h2 section-title">
-            Get started with our <strong className="strong">News</strong>
+            {t('blog.start')} <strong className="strong">{t('blog.news')}</strong>
           </h2>
 
           <ul className="has-scrollbar">
-            {posts.map((post, index) => (
-              <li key={index} className="scrollbar-item">
-                <div className="blog-card">
-                  <figure
-                    className="card-banner img-holder"
-                    style={{ "--width": 500, "--height": 600 }}
-                  >
-                    <img
-                      src={post.imageUrl}
-                      width="500"
-                      height="600"
-                      loading="lazy"
-                      alt={post.title}
-                      className="img-cover"
-                    />
-                  </figure>
+            {posts.map((post, index) => {
+              const { title = 'Untitled', description = '', imageUrl, tags = [], _id } = post;
+              const { text, isTruncated } = truncate(description, 6);
 
-                  <div className="card-content">
-                    <ul className="card-meta-list">
-                      {post.tags.map((tag, i) => (
-                        <li key={i}>
-                          <span className="card-tag">{tag}</span>
-                        </li>
-                      ))}
-                    </ul>
+              return (
+                <li key={index} className="scrollbar-item">
+                  <div className="blog-card">
+                    <figure className="card-banner img-holder">
+                      <img
+                        src={imageUrl}
+                        alt={title}
+                        className="img-cover"
+                        loading="lazy"
+                      />
+                    </figure>
 
-                    <h3 className="h4">
-                      <Link to={`/news/${post._id}`} className="card-title hover:underline">
-                        {post.title}
+                    <h1 id="titler">{title}</h1>
+
+                    <div id="tagger" className="card-content">
+                      <ul className="card-meta-list">
+                        {tags.map((tag, i) => (
+                          <li key={i}><span className="card-tag">{tag}</span></li>
+                        ))}
+                      </ul>
+
+                      <p className="card-text">
+                        {text}{isTruncated && '...'}
+                      </p>
+
+                      <Link to={`/news/${_id}`} className="read-more">
+                        {t('blog.readMore')} →
                       </Link>
-                    </h3>
-
-                    <p className="card-text">{truncate(post.description, 35)}</p>
-                    <Link to={`/news/${post._id}`} className="read-more">Read More →</Link>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

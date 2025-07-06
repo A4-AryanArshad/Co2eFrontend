@@ -558,3 +558,26 @@ margin-bottom: 100px;
 margin-top: 80px;
 }
 
+.img-holder {
+  width: 100%;
+  max-width: 350px; /* adjust width to fit your layout */
+  height: 450px; /* this matches the height in your screenshot */
+  overflow: hidden;
+  border-radius: 16px;
+  display: block;
+}
+
+.img-holder img.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops oversized images */
+  object-position: center;
+  display: block;
+}
+#titler{
+  font-weight: 300;
+  margin: 9px;
+}
+#tagger{
+  margin: 4px;
+}

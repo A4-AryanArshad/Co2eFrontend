@@ -35,7 +35,7 @@ const Header = () => {
       <header id="hhw"className="header">
         <div className="container">
           <h1>
-            <a href="#" className="logo"><img id="logoo" src="Logo.png"  /></a>
+
           </h1>
 
           {/* Language Dropdown */}

@@ -252,6 +252,27 @@
   "email": "Email",
   "password": "Mot de passe",
   "submit": "Connexion"
+},
+"counter": {
+  "heading": "Impact carbone mondial en temps réel",
+  "since": "Depuis",
+  "emissions_label": "Émissions de CO₂",
+  "emissions_unit": "Tonnes métriques émises",
+  "credits_label": "Crédits carbone émis",
+  "credits_unit": "Tonnes métriques compensées"
+},
+"blog": {
+  "subscribePlaceholder": "Ingresa tu correo para suscribirte a nuestro boletín",
+  "subscribe": "Suscribirse",
+  "start": "Comienza con nuestras",
+  "news": "Noticias",
+  "readMore": "Leer más"
+},
+"recent": {
+  "seeWhat": "Voyez ce que nous avons",
+  "blogs": "Blogs",
+  "readMore": "Lire la suite"
 }
+
 
 }

@@ -252,7 +252,28 @@
   "email": "Correo electrónico",
   "password": "Contraseña",
   "submit": "Iniciar sesión"
-}
+},
+"counter": {
+  "heading": "Impacto global de carbono en tiempo real",
+  "since": "Desde",
+  "emissions_label": "Emisiones de CO₂",
+  "emissions_unit": "Toneladas métricas emitidas",
+  "credits_label": "Créditos de carbono emitidos",
+  "credits_unit": "Toneladas métricas compensadas"
+},
+"blog": {
+    "subscribePlaceholder": "Entrez votre e-mail pour vous abonner à notre newsletter",
+    "subscribe": "S'abonner",
+    "start": "Commencez avec nos",
+    "news": "Actualités",
+    "readMore": "Lire la suite"
+  },
+  "recent": {
+    "seeWhat": "Mira lo que hemos",
+    "blogs": "Blogs",
+    "readMore": "Leer más"
+  }
+
 
   
 }
