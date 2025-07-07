@@ -3,14 +3,14 @@
     "logo": "PORTAL C02e",
     "home": "Inicio",
     "service": "Servicio",
-    "trade": "Intercambiar",
+    "DecarbXchange": "DecarbXchange",
     "pricing": "Precios",
     "news": "Noticias",
     "login": "Iniciar sesión"
   },
   "join_now": "Únete ahora",
   "hero": {
-    "subtitle": "Bienvenido al portal C02e",
+    "subtitle": "Bienvenido al C02e PORTAL",
     "title": {
       "part1": "Impulsando la transición hacia una",
       "part2": "economía cero emisiones"
@@ -261,19 +261,20 @@
   "credits_label": "Créditos de carbono emitidos",
   "credits_unit": "Toneladas métricas compensadas"
 },
-"blog": {
-    "subscribePlaceholder": "Entrez votre e-mail pour vous abonner à notre newsletter",
-    "subscribe": "S'abonner",
-    "start": "Commencez avec nos",
-    "news": "Actualités",
-    "readMore": "Lire la suite"
-  },
-  "recent": {
-    "seeWhat": "Mira lo que hemos",
-    "blogs": "Blogs",
-    "readMore": "Leer más"
-  }
 
+
+"blog": {
+  "subscribePlaceholder": "Ingresa tu correo para suscribirte a nuestro boletín",
+  "subscribe": "Suscribirse",
+  "start": "Comienza con nuestras",
+  "news": "Noticias",
+  "readMore": "Leer más"
+},
+"recent": {
+  "seeWhat": "Mira lo que hemos",
+  "blogs": "Blogs",
+  "readMore": "Leer más"
+}
 
   
 }

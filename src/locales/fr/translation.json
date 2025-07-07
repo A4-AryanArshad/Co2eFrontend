@@ -3,14 +3,14 @@
     "logo": "PORTAIL C02e",
     "home": "Accueil",
     "service": "Service",
-    "trade": "Échanger",
+    "DecarbXchange": "DecarbXchange",
     "pricing": "Tarifs",
     "news": "Actualités",
     "login": "Connexion"
   },
   "join_now": "Rejoindre",
   "hero": {
-    "subtitle": "Bienvenue sur le portail C02e",
+    "subtitle": "Bienvenue sur le C02e PORTAL",
     "title": {
       "part1": "Conduire la transition vers une",
       "part2": "économie zéro carbone"
@@ -262,17 +262,15 @@
   "credits_unit": "Tonnes métriques compensées"
 },
 "blog": {
-  "subscribePlaceholder": "Ingresa tu correo para suscribirte a nuestro boletín",
-  "subscribe": "Suscribirse",
-  "start": "Comienza con nuestras",
-  "news": "Noticias",
-  "readMore": "Leer más"
-},
-"recent": {
+    "subscribePlaceholder": "Entrez votre e-mail pour vous abonner à notre newsletter",
+    "subscribe": "S'abonner",
+    "start": "Commencez avec nos",
+    "news": "Actualités",
+    "readMore": "Lire la suite"
+  },
+ "recent": {
   "seeWhat": "Voyez ce que nous avons",
   "blogs": "Blogs",
   "readMore": "Lire la suite"
 }
-
-
 }

@@ -86,10 +86,11 @@ const Header = () => {
               </li>
               <li>
                 <Link to="/trade" className="navbar-link" onClick={() => setNavOpen(false)}>
-                  <span>{t("navbar.trade")}</span>
+                  <span>{t("navbar.DecarbXchange")}</span>
                   <IoChevronForwardOutline />
                 </Link>
               </li>
+
               <li>
                 <Link to="/pricing" className="navbar-link" onClick={() => setNavOpen(false)}>
                   <span>{t("navbar.pricing")}</span>
